@@ -1,9 +1,15 @@
 import React from "react"
+import PropTypes from "prop-types"
+import styled from "styled-components"
 
-function DetailContainer () {
-  return(
-    <h1>Detail</h1>
-  )
+const DetailPresenter = ({ result, loading, error}) => null
+
+DetailPresenter.propTypes = {
+  result: PropTypes.object,
+  loading: PropTypes.bool.isRequired,
+  erorr : PropTypes.string,
 }
 
-export default DetailContainer;
+export default DetailPresenter
+
+

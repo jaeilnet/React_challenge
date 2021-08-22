@@ -8,7 +8,7 @@ class SearchContainer extends React.Component{
     tvResults : null,
     searchTerm : "",
     error : null,
-    loading : false,
+    loading : true,
   };
 
   componentDidMount(){
@@ -46,7 +46,7 @@ class SearchContainer extends React.Component{
 
   render(){
     const { movieResults, tvResults, searchTerm, loading, error} = this.state;
-    console.log(this.state)
+    // console.log(this.state)
     return(
     <SearchPresenter 
       movieResults={movieResults}
