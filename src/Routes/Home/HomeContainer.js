@@ -14,8 +14,9 @@ class HomeContainer extends React.Component{
   async componentDidMount(){
     try {
       const { data : { results : nowPlaying }} =  await moviesApi.nowPlaying()
-      const { data : { result : upComing }} = await moviesApi.upComing()
-      const { data : { result : popular}} = await moviesApi.popular()
+      const { data : { results : upComing }} = await moviesApi.upComing()
+      const { data : { results : popular}} = await moviesApi.popular()
+      // throw Error();
       this.setState({
         nowPlaying,
         upComing,
