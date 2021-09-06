@@ -7,7 +7,7 @@ class HomeContainer extends React.Component{
     nowPlaying : null,
     upComing : null,
     popular : null,
-    erorr : null,
+    error : null,
     loading : true,
   };
 
@@ -25,11 +25,11 @@ class HomeContainer extends React.Component{
     } catch (error) {
       this.setState({
         error: "영화정보를 찾지 못했습니다."
-      })
+      });
     } finally{
       this.setState({
         loading:false
-      })
+      });
     }
   }
 
@@ -43,7 +43,7 @@ class HomeContainer extends React.Component{
         popular={popular}
         error={error}
         loading={loading}
-     />
+    />
     )
   }
 }

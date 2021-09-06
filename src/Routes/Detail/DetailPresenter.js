@@ -7,7 +7,7 @@ const DetailPresenter = ({ result, loading, error}) => null
 DetailPresenter.propTypes = {
   result: PropTypes.object,
   loading: PropTypes.bool.isRequired,
-  erorr : PropTypes.string,
+  error : PropTypes.string,
 }
 
 export default DetailPresenter

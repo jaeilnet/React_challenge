@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import Loader from "../../Components/Loader";
 import Section from "../../Components/Section";
+import Message from "../../Components/Message";
+import Poster from "../../Components/Poster"
 
 
 const Container = styled.div`
@@ -27,10 +29,34 @@ const SearchPresenter = ({ movieResults, tvResults, searchTerm, handleSubmit, lo
     </Form>
     {loading ? <Loader /> : (<>
         {movieResults && movieResults.length > 0 && (
-        <Section title="Movie Results">{movieResults.map(movie => <span key={movie.id}>{movie.title}</span>)}</Section>)}
+        <Section title="Movie Results">{movieResults.map(movie =>    
+          <Poster 
+            Key={movie.id}
+            id={movie.id}
+            imageUrl={movie.poster_path}
+            title={movie.original_title}
+            rating={movie.vote_average}
+            year={movie.release_date && movie.release_date.substring(0,4)}
+            isMovie={true}
+          />
+        )}</Section>)}
         
         {tvResults && tvResults.length > 0 && (
-        <Section title="TV Results">{tvResults.map(show => <span key={show.id}>{show.name}</span>)}</Section>)}
+        <Section title="TV Results">{tvResults.map(show => 
+          <Poster 
+            Key={show.id}
+            id={show.id}
+            imageUrl={show.poster_path}
+            title={show.original_name}
+            rating={show.vote_average}
+            year={show.first_air_date && show.first_air_date.substring(0,4)}
+        />
+        )}</Section>)}
+
+        {error && <Message color="#e74c3c" text={error} />}
+        
+        {movieResults && tvResults && movieResults.length === 0 && tvResults === 0 && 
+        <Message text="검색 결과가 없습니다." color="#95a5a6" />}
     </>)}
   </Container>
 )

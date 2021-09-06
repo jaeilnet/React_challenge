@@ -9,19 +9,20 @@ const Container = styled.div`
 `;
 
 const Text = styled.span`
-  color:#e74c3c;
+  color: ${props => props.color};
   font-weight: 600;
 `;
 
-const Error = ({text}) => {
+const Message = ({text, color}) => {
   <Container>
-    <Text>
+    <Text colr={color}>
       {text}
     </Text>
   </Container>
 }
 
-Error.propTpyes = {
+Message.propTpyes = {
   text : PropTypes.string.isRequired,
+  color : PropTypes.string.isRequired,
 }
-export default Error
+export default Message

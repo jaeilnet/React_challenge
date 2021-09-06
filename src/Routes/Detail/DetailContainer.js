@@ -8,14 +8,14 @@ class DetailContainer extends React.Component{
     const { location : { pathname} } = props
     this.state = {
       result: null,
-      erorr : null,
+      error : null,
       loading: true,
       isMovie : pathname.includes("/movie/")
     }
   };
 
   async componentDidMount() {
-    const { match : { params : {id}}, history : { push }, location : { pathname }} = this.props
+    const { match : { params : {id}}, history : { push }} = this.props
     const { isMovie } = this.state
     const parsedId = parseInt(id);
     if (isNaN(parsedId)){

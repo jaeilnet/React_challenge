@@ -15,6 +15,7 @@ class TVContainer extends React.Component{
     try {
       const { data : { results : topRated }} = await tvApi.topRated()
       const { data : { results : popular}} = await tvApi.popular()
+      // throw Error();
       const { data : { results : airingToday }} = await tvApi.airingToday()
       this.setState({
         topRated,
